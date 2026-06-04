@@ -22,7 +22,6 @@ class StatusPngAction extends BuildStatusAction {
             response.setHeader("Cache-Control", "no-cache, private");
             response.setHeader("Content-Type", "image/png");
             IOUtils.copy(getStatusImage(status), response.getOutputStream());
-            response.flushBuffer();
         } catch (Exception e) {
             throw HttpResponses.error(500, "Could not generate response.");
         }
